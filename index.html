@@ -276,7 +276,7 @@
                     .replace(/\/master/, "/blob/master");
             } else if (gitLinkRepoURL.includes("github.com")) {
                 url = gitLinkRepoURL + "/blob/main/docs/" + vm.route.file;
-            } else if (gitLåinkRepoURL.includes("glitch.com")) {
+            } else if (gitLinkRepoURL.includes("glitch.com")) {
                 url = gitLinkRepoURL + '?path=' + vm.route.file
             } else {
                 url = '';
