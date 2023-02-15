@@ -271,11 +271,15 @@
 
           hook.beforeEach(function (html) {
             if (/githubusercontent\.com/.test(vm.route.file)) {
-              url = vm.route.file
-                .replace('raw.githubusercontent.com', 'github.com')
-                .replace(/\/master/, '/blob/master')
+                  url = vm.route.file
+                    .replace("raw.githubusercontent.com", "github.com")
+                    .replace(/\/master/, "/blob/master");
+            } else if (gitLinkRepoURL.includes("github.com")) {
+                url = gitLinkRepoURL + "/blob/main/docs/" + vm.route.file;
+            } else if (gitLåinkRepoURL.includes("glitch.com")) {
+                url = gitLinkRepoURL + '?path=' + vm.route.file
             } else {
-              url = gitLinkRepoURL + '/blob/main/docs/' + vm.route.file
+                url = '';
             }
             var editHtml = '[:memo: ' + editThisPageLinkText + '](' + url + ')\n'
 
